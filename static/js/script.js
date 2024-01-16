@@ -295,3 +295,48 @@ function createChatElement(botAns){
     voiceControl(botAns);
 
 };
+
+
+// manage screen size
+// get initial width and  height of the screen
+let initialWidth = window.screen.width;
+let initialHeight = window.screen.height;
+
+//  get the meta viewport element
+let viewport = document.querySelector('meta[viewport]');
+
+// set the meta viewport content
+viewport.setAttribute('content', 'width=device-width','initial-scale=1.0', 'maximum-scale=1.0','user-scalable=0');
+
+// add a listener for the resize event
+
+window.addEventListener('resize',()=>{
+    let currentWidth = window.screen.width;
+    let currentHeight = window.screen.height;
+
+    // check if the orientation has changed
+    if( currentWidth !== initialWidth || currentHeight !== initialHeight){
+
+        // set the visual  viewport in the meta viewport content
+        viewport.setAttribute('content', 
+                                'width='+ currentWidth + 
+                                ', height=' + currentHeight + ', initial-scale=1.0'  )
+        
+    } else{
+        //check if the keyboard is visible
+        if(window.innerHeight< initialHeight){
+            //add scroll to the web page
+            document.documentElement.style.setProperty('overflow','auto');
+
+            // reset the height in meta viewport with  initial height of the web page
+            viewport.setAttribute('content', 
+            'height=' + initialHeight + 
+            'px, width=device-width, initial-scale=1.0');
+
+        } else{
+            // reset the meta viewport content
+            viewport.setAttribute('content',
+                                'width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=0');
+        }
+    }
+});
