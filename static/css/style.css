@@ -12,7 +12,7 @@ html{
 }
 
 body{
-    background: #ccc;
+    background:#E3F2FD;
 }
 
 
@@ -29,16 +29,21 @@ body{
 .app-box{
     border: 1px solid #F1EFEF;
     height: 60vh;
-    width: 30vw;
+    width: 320px;
     background-color: #fff;
     margin-top: 10vh;
     box-shadow: 2vw 2vw 12vw 3vw #ccc;
     min-height: 400px;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   
 }
 
 .header{
-    background-color:#191717 ;
+    background-color:#724ae8 ;
     height: 7vh;
     
 }
@@ -88,14 +93,17 @@ body{
     z-index: 2;
     clear: both;
     min-height: max-content;
+    background-color: #724ae8;
+    color: #fff;
 
 }
 
 .bot{
-    color: azure;
-    background-color:#191717 ;
+    color: #000;
+    background-color:#f2f2f2 ;
     border-radius: 20px 0 20px 20px;
     align-self: end;
+    
 }
 
 
@@ -113,14 +121,15 @@ body{
 }
 
 .input-box input{
-    width: 80%;
+    width: 100%;
     min-width: 0.5vw;
     border: none;
-    border-bottom: 0.1vw solid #F1EFEF;
+    border-top: 0.1vw solid #F1EFEF;
     padding: 3px ;
     outline: none;
     height: 5vh;
     width: 26vw;
+    flex-basis: 250px;
 }
 
 
@@ -147,3 +156,20 @@ button{
     margin-top: 1vh;
 }
 
+
+@media (max-width: 490px) {
+    .container{
+       display: flex;
+       align-items: flex-start;
+       justify-content: center;
+       
+      
+    }
+    .app-box{
+        position: static;
+        height: 70vh;
+        width: 80vw;
+        
+    }
+    
+}
